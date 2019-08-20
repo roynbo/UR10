@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Positions>
+  <!--以目前平台为中心，单位cm-->
+  <Right_UR_Position>
+    <Position>
+      <X>10</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </Position>
+    <Rotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </Rotation>
+  </Right_UR_Position>
+  <Left_UR_Position>
+    <Position>
+      <X>-10</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </Position>
+    <Rotation>
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
+    </Rotation>
+  </Left_UR_Position>
+  <Shelf_Postion>
+    <Position>
+      <X />
+      <Y />
+      <Z />
+    </Position>
+    <Rotation>
+      <X />
+      <Y />
+      <Z />
+    </Rotation>
+  </Shelf_Postion>
+</Positions>
