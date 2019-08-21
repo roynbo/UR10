@@ -2166,7 +2166,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u53F3\u624B\nIO"
+  m_Text: "\u5DE6\u624B\nIO"
 --- !u!222 &632812354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3078,7 +3078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101064141}
   m_Layer: 5
-  m_Name: LeftIO
+  m_Name: RightIO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4467,7 +4467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471004589}
   m_Layer: 5
-  m_Name: RightIO
+  m_Name: LeftIO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5566,6 +5566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1902328129}
+  - component: {fileID: 1902328130}
   m_Layer: 0
   m_Name: BtnManager
   m_TagString: Untagged
@@ -5587,6 +5588,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902328130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902328128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c1251653131d942828af8ceb146523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftToggles:
+  - {fileID: 1398089651}
+  - {fileID: 1070421709}
+  rightToggles:
+  - {fileID: 952698985}
+  - {fileID: 1228960480}
+  - {fileID: 987986820}
+  - {fileID: 414296890}
+  sleepTime: 3
 --- !u!1 &1917556665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,7 +6094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5DE6\u624B\nIO"
+  m_Text: "\u53F3\u624B\nIO"
 --- !u!222 &2043273583
 CanvasRenderer:
   m_ObjectHideFlags: 0
