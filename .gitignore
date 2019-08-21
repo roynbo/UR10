@@ -1,0 +1,7 @@
+/Library/*
+/Logs/*
+/Temp/*
+/.vs/
+Assembly-CSharp.csproj
+UR10.sln
+/obj/*
