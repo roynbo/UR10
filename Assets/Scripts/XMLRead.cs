@@ -6,21 +6,21 @@ using System;
 
 public class XMLRead
 {
-    private string m_file_path = "K:\\高压带电\\UR10\\Assets\\XMLS";
+    private string m_file_path = "E:\\GitHub\\UR10\\Assets\\XMLS";
     private string m_XML_name;
     private string m_XML_path;
-    private XmlDocument xmldoc;
+    private XmlDocument m_xmldoc;
     public XMLRead()
     {
         m_XML_name = "Init.XML";
         m_XML_path = CreatePath();
-        xmldoc = new XmlDocument();
+        m_xmldoc = new XmlDocument();
     }
     public XMLRead(string xml_name)
     {
         m_XML_name = xml_name;
         m_XML_path = CreatePath();
-        xmldoc = new XmlDocument();
+        m_xmldoc = new XmlDocument();
     }
     string CreatePath()
     {
@@ -31,7 +31,7 @@ public class XMLRead
     {
         try
         {
-            xmldoc.Load(m_XML_path);
+            m_xmldoc.Load(m_XML_path);
             return true;
         }
         catch(Exception e)
@@ -43,7 +43,7 @@ public class XMLRead
     {
         get
         {
-            return xmldoc;
+            return m_xmldoc;
         }
     }
 }

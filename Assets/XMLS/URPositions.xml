@@ -3,9 +3,9 @@
   <!--以目前平台为中心，单位cm-->
   <Right_UR_Position>
     <Position>
-      <X>10</X>
+      <X>-50</X>
       <Y>0</Y>
-      <Z>0</Z>
+      <Z>64</Z>
     </Position>
     <Rotation>
       <X>0</X>
@@ -15,7 +15,7 @@
   </Right_UR_Position>
   <Left_UR_Position>
     <Position>
-      <X>-10</X>
+      <X>0</X>
       <Y>0</Y>
       <Z>0</Z>
     </Position>
@@ -25,16 +25,16 @@
       <Z>0</Z>
     </Rotation>
   </Left_UR_Position>
-  <Shelf_Postion>
+  <Zhijia_Position>
     <Position>
-      <X />
-      <Y />
-      <Z />
+      <X>0</X>
+      <Y>0</Y>
+      <Z>64</Z>
     </Position>
     <Rotation>
-      <X />
-      <Y />
-      <Z />
+      <X>0</X>
+      <Y>0</Y>
+      <Z>0</Z>
     </Rotation>
-  </Shelf_Postion>
+  </Zhijia_Position>
 </Positions>
