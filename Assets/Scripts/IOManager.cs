@@ -11,6 +11,7 @@ public class IOManager
     private float m_sleep_time;
     private Toggle m_chosen_toggle;
     private bool m_can_chose;
+    private int m_chosen_index;
     public IOManager(int num)
     {
         m_IO_num = num;
@@ -37,10 +38,10 @@ public class IOManager
     {
         foreach (Toggle toggle in m_toggles)
         {
-            toggle.isOn = false;
+            //toggle.isOn = false;
         }
     }
-    public void Monitor()
+    public bool Monitor()
     {
         for(int i=0;i<m_IO_num;i++)
         {
@@ -49,6 +50,7 @@ public class IOManager
                 if (m_toggles[i].isOn)
                 {
                     m_chosen_toggle = m_toggles[i];
+                    m_chosen_index = i;
                     m_on_time = Time.time;
                     m_can_chose = false;
                 }
@@ -69,6 +71,15 @@ public class IOManager
                     m_toggles[i].interactable = true;
                 }
             }
+            return false;
+        }
+        return true;
+    }
+    public int chosenIndex
+    {
+        get
+        {
+            return m_chosen_index;
         }
     }
 }
