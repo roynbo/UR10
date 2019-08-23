@@ -74,4 +74,13 @@ public class CommandScripts
         string command= "movej([" + homePos[0].ToString("0.0000") + "," + homePos[1].ToString("0.0000") + "," + homePos[2].ToString("0.0000") + "," + homePos[3].ToString("0.0000") + "," + homePos[4].ToString("0.0000") + "," + homePos[5].ToString("0.0000") + "], a = " + AccelerationRate.ToString() + ", v = " + SpeedRate.ToString() + ")";
         return command;
     }
+
+    public static string MissionDo(Mission mission, double AccelerationRate, double SpeedRate)
+    {
+        double[] Pos = new double[6];
+        for (int i = 0; i < 6; i++)
+            Pos[i] = mission.Angles[i] / 180 * 3.14;
+        string command = "movej([" + Pos[0].ToString("0.0000") + "," + Pos[1].ToString("0.0000") + "," + Pos[2].ToString("0.0000") + "," + Pos[3].ToString("0.0000") + "," + Pos[4].ToString("0.0000") + "," + Pos[5].ToString("0.0000") + "], a = " + AccelerationRate.ToString() + ", v = " + SpeedRate.ToString() + ")";
+        return command;
+    }
 }

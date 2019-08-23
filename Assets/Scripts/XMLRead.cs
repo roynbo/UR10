@@ -6,7 +6,7 @@ using System;
 
 public class XMLRead
 {
-    private string m_file_path = "E:\\GitHub\\UR10\\Assets\\XMLS";
+    private string m_file_path = "E:\\UR10\\Assets\\XMLS\\Missions";
     private string m_XML_name;
     private string m_XML_path;
     private XmlDocument m_xmldoc;

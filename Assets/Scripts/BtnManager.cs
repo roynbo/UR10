@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using URControl;
 using URDate;
+using System.Xml;
+
 public class BtnManager : MonoBehaviour
 {
     IOManager leftIO, rightIO;
@@ -25,6 +27,15 @@ public class BtnManager : MonoBehaviour
     string[] temp_Pos = new string[12];
     double[] current_Pos = new double[12];
     bool flag_IOClose = false;
+
+    //任务队列测试
+    [SerializeField] bool inTest = false;//左臂参加测试
+    XMLRead xmlRead;
+    List<Mission>mission_List=new List<Mission>();
+    int index=-1;
+    [SerializeField] GameObject URMissionList;
+    Text txIndex;
+    Text txLog;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +51,27 @@ public class BtnManager : MonoBehaviour
         for(int i=0;i<6;i++)
         {
             temp_Pos[i] = "0.0";
+        }
+
+        //任务队列测试
+        if (inTest)
+        {
+            txIndex = URMissionList.transform.Find("Texts").transform.Find("Index").gameObject.GetComponent<Text>();
+            txLog= URMissionList.transform.Find("Texts").transform.Find("Log").gameObject.GetComponent<Text>();
+            xmlRead = new XMLRead("Missions.xml");
+            if (xmlRead.Read())
+            {
+                print("文件读取正确");
+                foreach (XmlElement xmlEle in xmlRead.XMLdoc.SelectSingleNode("Missions").ChildNodes)
+                {
+                    Mission mission = new Mission(xmlEle);
+                    mission_List.Add(mission);
+                }
+            }
+            else
+            {
+                print("文件路径不对");
+            }
         }
     }
 
@@ -123,6 +155,26 @@ public class BtnManager : MonoBehaviour
     {
         //print(CommandScripts.Home(AccelerationRate, SpeedRate));
         URController.Send_command(CommandScripts.Home(AccelerationRate, SpeedRate));
+    }
+    #endregion
+
+    #region 任务队列测试
+    public void btnNextMission()
+    {
+        index++;
+        if (index < mission_List.Count)
+        {
+            txIndex.text = (index + 1).ToString();
+            txLog.text = mission_List[index].Log;
+            //print(CommandScripts.MissionDo(mission_List[index], AccelerationRate, SpeedRate));
+            URController.Send_command(CommandScripts.MissionDo(mission_List[index],AccelerationRate, SpeedRate));
+        }
+        else
+        {
+            txLog.text = "任务执行完毕";
+            Button btnNext = URMissionList.transform.Find("btnNextMission").GetComponent<Button>();
+            btnNext.interactable = false;
+        }
     }
     #endregion
 }
