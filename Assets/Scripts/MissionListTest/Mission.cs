@@ -34,5 +34,11 @@ public class Mission
             return m_angles;
         }
     }
-
+    public int IOindex
+    {
+        get
+        {
+            return m_IOMission.index;
+        }
+    }
 }

@@ -167,7 +167,13 @@ public class BtnManager : MonoBehaviour
             txIndex.text = (index + 1).ToString();
             txLog.text = mission_List[index].Log;
             //print(CommandScripts.MissionDo(mission_List[index], AccelerationRate, SpeedRate));
-            URController.Send_command(CommandScripts.MissionDo(mission_List[index],AccelerationRate, SpeedRate));
+            if (mission_List[index].IOindex == -1)
+                URController.Send_command(CommandScripts.MissionDo(mission_List[index], AccelerationRate, SpeedRate));
+            else
+            {
+                toggleIO(mission_List[index].IOindex);
+            }
+                
         }
         else
         {
