@@ -118,7 +118,7 @@ namespace URDate
         public void GetPositions()
         {
             //这里实时读取UR数据（先读取六个坐标值，手册来看地址就是400）
-            int[] SixPositions = Socket502_TCP.ReadMultipleRegister(6, 400,false);
+            int[] SixPositions = Socket502_TCP.ReadMultipleRegister(6, 400, false);
 
             //对于XYZ，取得的并不能直接使用，而是要经过转换
             float[] PositionsFiltered = new float[6];
@@ -134,10 +134,10 @@ namespace URDate
                 //前面三个XYZ做同样处理(对于所有的XYZ都要除以10)
                 if (i < 3)
                 {
-                    PositionsFiltered[i] = (float)SixPositions[i]/10;
+                    PositionsFiltered[i] = (float)SixPositions[i] / 10;
                 }
                 //后面三个UVW只要直接除以1000即可
-                else 
+                else
                 {
                     PositionsFiltered[i] = (float)SixPositions[i] / 1000;
                 }
@@ -191,7 +191,7 @@ namespace URDate
                 }
 
                 //这里取到的都是弧度值，要转换为角度值(除以1000之后还是弧度，要再转换为角度)
-                AnglesFiltered[i] = (double)SixAngles[i] / 1000*(180/3.14);
+                AnglesFiltered[i] = (double)SixAngles[i] / 1000 * (180 / 3.14);
 
             }
 

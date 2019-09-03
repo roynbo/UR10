@@ -2012,8 +2012,8 @@
             <remarks>
             <para>
             For n points, coefficients are calculated up to the maximum derivative order possible (n-1).
-            The current function value position specifies the "center" for surrounding coefficients.
-            Selecting the first, middle or last positions represent forward, backwards and central difference methods.
+            The current function value localPosition specifies the "center" for surrounding coefficients.
+            Selecting the first, middle or last localPositions represent forward, backwards and central difference methods.
             </para>
             </remarks>
             </summary>
@@ -2033,7 +2033,7 @@
             <summary>
             Gets the finite difference coefficients for a specified center and order.
             </summary>
-            <param name="center">Current function position with respect to coefficients. Must be within point range.</param>
+            <param name="center">Current function localPosition with respect to coefficients. Must be within point range.</param>
             <param name="order">Order of finite difference coefficients.</param>
             <returns>Vector of finite difference coefficients.</returns>
         </member>
@@ -2041,7 +2041,7 @@
             <summary>
             Gets the finite difference coefficients for all orders at a specified center.
             </summary>
-            <param name="center">Current function position with respect to coefficients. Must be within point range.</param>
+            <param name="center">Current function localPosition with respect to coefficients. Must be within point range.</param>
             <returns>Rectangular array of coefficients, with columns specifying order.</returns>
         </member>
         <member name="T:MathNet.Numerics.Differentiation.StepType">
@@ -2537,12 +2537,12 @@
         </member>
         <member name="M:MathNet.Numerics.Distance.Hamming(System.Double[],System.Double[])">
             <summary>
-            Hamming Distance, i.e. the number of positions that have different values in the vectors.
+            Hamming Distance, i.e. the number of localPositions that have different values in the vectors.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.Distance.Hamming(System.Single[],System.Single[])">
             <summary>
-            Hamming Distance, i.e. the number of positions that have different values in the vectors.
+            Hamming Distance, i.e. the number of localPositions that have different values in the vectors.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.Distance.Pearson(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double})">
@@ -10685,7 +10685,7 @@
             <param name="rnd">The random number generator to use.</param>
             <param name="degreesOfFreedom">The degrees of freedom (n) for the Wishart distribution.</param>
             <param name="scale">The scale matrix (V) for the Wishart distribution.</param>
-            <param name="chol">The cholesky decomposition to use.</param>
+            <param name="chol">The cholesky decomlocalPosition to use.</param>
             <returns>a random number from the distribution.</returns>
         </member>
         <member name="T:MathNet.Numerics.Distributions.Zipf">
@@ -15292,7 +15292,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseEvd.Create(MathNet.Numerics.LinearAlgebra.Double.DenseMatrix,MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -15379,11 +15379,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
@@ -15454,19 +15454,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseQR.Tau">
@@ -15500,24 +15500,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Double.DenseMatrix"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Double.DenseMatrix"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseSvd.Create(MathNet.Numerics.LinearAlgebra.Double.DenseMatrix,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.DenseSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -15578,11 +15578,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.GramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Double.Factorization.GramSchmidt.Determinant">
@@ -15615,13 +15615,13 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.QR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A (m x n) may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Full"/> factorization is performed, the resulting Q matrix is an m x m matrix
             and the R matrix is an m x n matrix. If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Thin"/> factorization is performed, the
             resulting Q matrix is an m x n matrix and the R matrix is an n x n matrix.
@@ -15640,18 +15640,18 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.Svd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD).</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD).</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Double.Factorization.Svd.Rank">
@@ -15762,7 +15762,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserEvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -15848,11 +15848,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Double})">
@@ -15914,19 +15914,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserQR.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},MathNet.Numerics.LinearAlgebra.Factorization.QRMethod)">
@@ -15975,24 +15975,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserSvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Double},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Factorization.UserSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -16616,21 +16616,21 @@
             Algorithm is described in Chapter 10, section 10.3.2, page 275 <br/>
             </remarks>
         </member>
-        <member name="F:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILU0Preconditioner._decompositionLU">
+        <member name="F:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILU0Preconditioner._decomlocalPositionLU">
             <summary>
             The matrix holding the lower (L) and upper (U) matrices. The
-            decomposition matrices are combined to reduce storage.
+            decomlocalPosition matrices are combined to reduce storage.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILU0Preconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the upper triagonal elements.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILU0Preconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the lower triagonal elements.</returns>
         </member>
@@ -16795,7 +16795,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILUTPPreconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -16804,7 +16804,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILUTPPreconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -16911,7 +16911,7 @@
             <summary>
             Build heap for double indices
             </summary>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Vector"/></param>
@@ -16922,7 +16922,7 @@
             </summary>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Double.Vector"/></param>
-            <param name="begin">Root position</param>
+            <param name="begin">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILUTPElementSorter.SortIntegersDecreasing(System.Int32[])">
@@ -16943,7 +16943,7 @@
             Build heap
             </summary>
             <param name="values">Target values array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILUTPElementSorter.Sift(System.Int32[],System.Int32,System.Int32)">
@@ -16951,7 +16951,7 @@
             Sift values
             </summary>
             <param name="values">Target value array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Double.Solvers.ILUTPElementSorter.Exchange(System.Int32[],System.Int32,System.Int32)">
@@ -19610,7 +19610,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseEvd.Create(MathNet.Numerics.LinearAlgebra.Single.DenseMatrix,MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -19697,11 +19697,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Single})">
@@ -19772,19 +19772,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseQR.Tau">
@@ -19818,24 +19818,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Single.DenseMatrix"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Single.DenseMatrix"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseSvd.Create(MathNet.Numerics.LinearAlgebra.Single.DenseMatrix,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.DenseSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -19892,11 +19892,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.GramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Single.Factorization.GramSchmidt.Determinant">
@@ -19929,13 +19929,13 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.QR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A (m x n) may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Full"/> factorization is performed, the resulting Q matrix is an m x m matrix
             and the R matrix is an m x n matrix. If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Thin"/> factorization is performed, the
             resulting Q matrix is an m x n matrix and the R matrix is an n x n matrix.
@@ -19954,18 +19954,18 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.Svd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD).</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD).</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Single.Factorization.Svd.Rank">
@@ -20076,7 +20076,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserEvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Single},MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -20162,11 +20162,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Single})">
@@ -20228,19 +20228,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserQR.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Single},MathNet.Numerics.LinearAlgebra.Factorization.QRMethod)">
@@ -20289,24 +20289,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserSvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Single},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Factorization.UserSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -20930,21 +20930,21 @@
             Algorithm is described in Chapter 10, section 10.3.2, page 275 <br/>
             </remarks>
         </member>
-        <member name="F:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILU0Preconditioner._decompositionLU">
+        <member name="F:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILU0Preconditioner._decomlocalPositionLU">
             <summary>
             The matrix holding the lower (L) and upper (U) matrices. The
-            decomposition matrices are combined to reduce storage.
+            decomlocalPosition matrices are combined to reduce storage.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILU0Preconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the upper triagonal elements.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILU0Preconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the lower triagonal elements.</returns>
         </member>
@@ -21109,7 +21109,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILUTPPreconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -21118,7 +21118,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILUTPPreconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -21225,7 +21225,7 @@
             <summary>
             Build heap for double indices
             </summary>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Vector"/></param>
@@ -21236,7 +21236,7 @@
             </summary>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Single.Vector"/></param>
-            <param name="begin">Root position</param>
+            <param name="begin">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILUTPElementSorter.SortIntegersDecreasing(System.Int32[])">
@@ -21257,7 +21257,7 @@
             Build heap
             </summary>
             <param name="values">Target values array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILUTPElementSorter.Sift(System.Int32[],System.Int32,System.Int32)">
@@ -21265,7 +21265,7 @@
             Sift values
             </summary>
             <param name="values">Target value array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Single.Solvers.ILUTPElementSorter.Exchange(System.Int32[],System.Int32,System.Int32)">
@@ -23899,7 +23899,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseEvd.Create(MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix,MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -23988,11 +23988,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any complex square matrix A may be decomposed as A = QR where Q is an unitary mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex})">
@@ -24063,19 +24063,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseQR.Tau">
@@ -24109,24 +24109,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseSvd.Create(MathNet.Numerics.LinearAlgebra.Complex.DenseMatrix,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.DenseSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -24183,11 +24183,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.GramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex.Factorization.GramSchmidt.Determinant">
@@ -24220,13 +24220,13 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.QR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A (m x n) may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Full"/> factorization is performed, the resulting Q matrix is an m x m matrix
             and the R matrix is an m x n matrix. If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Thin"/> factorization is performed, the
             resulting Q matrix is an m x n matrix and the R matrix is an n x n matrix.
@@ -24245,18 +24245,18 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.Svd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD).</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD).</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex.Factorization.Svd.Rank">
@@ -24367,7 +24367,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserEvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex},MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -24456,11 +24456,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any complex square matrix A may be decomposed as A = QR where Q is an unitary mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex})">
@@ -24522,19 +24522,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserQR.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex},MathNet.Numerics.LinearAlgebra.Factorization.QRMethod)">
@@ -24583,24 +24583,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserSvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{System.Numerics.Complex},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex.Factorization.UserSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -25224,21 +25224,21 @@
             Algorithm is described in Chapter 10, section 10.3.2, page 275 <br/>
             </remarks>
         </member>
-        <member name="F:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILU0Preconditioner._decompositionLU">
+        <member name="F:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILU0Preconditioner._decomlocalPositionLU">
             <summary>
             The matrix holding the lower (L) and upper (U) matrices. The
-            decomposition matrices are combined to reduce storage.
+            decomlocalPosition matrices are combined to reduce storage.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILU0Preconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the upper triagonal elements.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILU0Preconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the lower triagonal elements.</returns>
         </member>
@@ -25403,7 +25403,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILUTPPreconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -25412,7 +25412,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILUTPPreconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -25519,7 +25519,7 @@
             <summary>
             Build heap for double indices
             </summary>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Vector`1"/></param>
@@ -25530,7 +25530,7 @@
             </summary>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Vector`1"/></param>
-            <param name="begin">Root position</param>
+            <param name="begin">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILUTPElementSorter.SortIntegersDecreasing(System.Int32[])">
@@ -25551,7 +25551,7 @@
             Build heap
             </summary>
             <param name="values">Target values array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILUTPElementSorter.Sift(System.Int32[],System.Int32,System.Int32)">
@@ -25559,7 +25559,7 @@
             Sift values
             </summary>
             <param name="values">Target value array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex.Solvers.ILUTPElementSorter.Exchange(System.Int32[],System.Int32,System.Int32)">
@@ -28165,7 +28165,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseEvd.Create(MathNet.Numerics.LinearAlgebra.Complex32.DenseMatrix,MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -28254,11 +28254,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any complex square matrix A may be decomposed as A = QR where Q is an unitary mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{MathNet.Numerics.Complex32})">
@@ -28329,19 +28329,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseQR.Tau">
@@ -28375,24 +28375,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.DenseMatrix"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.DenseMatrix"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseSvd.Create(MathNet.Numerics.LinearAlgebra.Complex32.DenseMatrix,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.DenseSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -28449,11 +28449,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.GramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.GramSchmidt.Determinant">
@@ -28486,13 +28486,13 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.QR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A (m x n) may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Full"/> factorization is performed, the resulting Q matrix is an m x m matrix
             and the R matrix is an m x n matrix. If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Thin"/> factorization is performed, the
             resulting Q matrix is an m x n matrix and the R matrix is an n x n matrix.
@@ -28511,18 +28511,18 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.Svd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD).</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD).</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="P:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.Svd.Rank">
@@ -28633,7 +28633,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserEvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{MathNet.Numerics.Complex32},MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserEvd"/> class. This object will compute the
-            the eigenvalue decomposition when the constructor is called and cache it's decomposition.
+            the eigenvalue decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="symmetricity">If it is known whether the matrix is symmetric or not the routine can skip checking it itself.</param>
@@ -28722,11 +28722,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserGramSchmidt">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any complex square matrix A may be decomposed as A = QR where Q is an unitary mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserGramSchmidt.Create(MathNet.Numerics.LinearAlgebra.Matrix{MathNet.Numerics.Complex32})">
@@ -28788,19 +28788,19 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserLU.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserQR">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserQR.Create(MathNet.Numerics.LinearAlgebra.Matrix{MathNet.Numerics.Complex32},MathNet.Numerics.LinearAlgebra.Factorization.QRMethod)">
@@ -28849,24 +28849,24 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserSvd">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD) for <see cref="T:MathNet.Numerics.LinearAlgebra.Matrix`1"/>.</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserSvd.Create(MathNet.Numerics.LinearAlgebra.Matrix{MathNet.Numerics.Complex32},System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Factorization.UserSvd"/> class. This object will compute the
-            the singular value decomposition when the constructor is called and cache it's decomposition.
+            the singular value decomlocalPosition when the constructor is called and cache it's decomlocalPosition.
             </summary>
             <param name="matrix">The matrix to factor.</param>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
@@ -29490,21 +29490,21 @@
             Algorithm is described in Chapter 10, section 10.3.2, page 275 <br/>
             </remarks>
         </member>
-        <member name="F:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILU0Preconditioner._decompositionLU">
+        <member name="F:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILU0Preconditioner._decomlocalPositionLU">
             <summary>
             The matrix holding the lower (L) and upper (U) matrices. The
-            decomposition matrices are combined to reduce storage.
+            decomlocalPosition matrices are combined to reduce storage.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILU0Preconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the upper triagonal elements.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILU0Preconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <returns>A new matrix containing the lower triagonal elements.</returns>
         </member>
@@ -29669,7 +29669,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILUTPPreconditioner.UpperTriangle">
             <summary>
-            Returns the upper triagonal matrix that was created during the LU decomposition.
+            Returns the upper triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -29678,7 +29678,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILUTPPreconditioner.LowerTriangle">
             <summary>
-            Returns the lower triagonal matrix that was created during the LU decomposition.
+            Returns the lower triagonal matrix that was created during the LU decomlocalPosition.
             </summary>
             <remarks>
             This method is used for debugging purposes only and should normally not be used.
@@ -29785,7 +29785,7 @@
             <summary>
             Build heap for double indices
             </summary>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Vector"/></param>
@@ -29796,7 +29796,7 @@
             </summary>
             <param name="sortedIndices">Indices of <paramref name="values"/></param>
             <param name="values">Target <see cref="T:MathNet.Numerics.LinearAlgebra.Complex32.Vector"/></param>
-            <param name="begin">Root position</param>
+            <param name="begin">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILUTPElementSorter.SortIntegersDecreasing(System.Int32[])">
@@ -29817,7 +29817,7 @@
             Build heap
             </summary>
             <param name="values">Target values array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILUTPElementSorter.Sift(System.Int32[],System.Int32,System.Int32)">
@@ -29825,7 +29825,7 @@
             Sift values
             </summary>
             <param name="values">Target value array</param>
-            <param name="start">Root position</param>
+            <param name="start">Root localPosition</param>
             <param name="count">Length of <paramref name="values"/></param>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Complex32.Solvers.ILUTPElementSorter.Exchange(System.Int32[],System.Int32,System.Int32)">
@@ -32774,11 +32774,11 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Factorization.GramSchmidt`1">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition Modified Gram-Schmidt Orthogonalization.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition Modified Gram-Schmidt Orthogonalization.</para>
             <para>Any real square matrix A may be decomposed as A = QR where Q is an orthogonal mxn matrix and R is an nxn upper triangular matrix.</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by modified Gram-Schmidt Orthogonalization.
+            The computation of the QR decomlocalPosition is done at construction time by modified Gram-Schmidt Orthogonalization.
             </remarks>
             <typeparam name="T">Supported data types are double, single, <see cref="N:MathNet.Numerics.LinearAlgebra.Complex"/>, and <see cref="N:MathNet.Numerics.LinearAlgebra.Complex32"/>.</typeparam>
         </member>
@@ -32879,7 +32879,7 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Factorization.LU`1.Inverse">
             <summary>
-            Returns the inverse of this matrix. The inverse is calculated using LU decomposition.
+            Returns the inverse of this matrix. The inverse is calculated using LU decomlocalPosition.
             </summary>
             <returns>The inverse of this matrix.</returns>
         </member>
@@ -32900,13 +32900,13 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Factorization.QR`1">
             <summary>
-            <para>A class which encapsulates the functionality of the QR decomposition.</para>
+            <para>A class which encapsulates the functionality of the QR decomlocalPosition.</para>
             <para>Any real square matrix A (m x n) may be decomposed as A = QR where Q is an orthogonal matrix
             (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix
             (also called right triangular matrix).</para>
             </summary>
             <remarks>
-            The computation of the QR decomposition is done at construction time by Householder transformation.
+            The computation of the QR decomlocalPosition is done at construction time by Householder transformation.
             If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Full"/> factorization is performed, the resulting Q matrix is an m x m matrix
             and the R matrix is an m x n matrix. If a <seealso cref="F:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod.Thin"/> factorization is performed, the
             resulting Q matrix is an m x n matrix and the R matrix is an n x n matrix.
@@ -32964,18 +32964,18 @@
         </member>
         <member name="T:MathNet.Numerics.LinearAlgebra.Factorization.Svd`1">
             <summary>
-            <para>A class which encapsulates the functionality of the singular value decomposition (SVD).</para>
+            <para>A class which encapsulates the functionality of the singular value decomlocalPosition (SVD).</para>
             <para>Suppose M is an m-by-n matrix whose entries are real numbers.
             Then there exists a factorization of the form M = UΣVT where:
             - U is an m-by-m unitary matrix;
             - Σ is m-by-n diagonal matrix with nonnegative real numbers on the diagonal;
             - VT denotes transpose of V, an n-by-n unitary matrix;
-            Such a factorization is called a singular-value decomposition of M. A common convention is to order the diagonal
+            Such a factorization is called a singular-value decomlocalPosition of M. A common convention is to order the diagonal
             entries Σ(i,i) in descending order. In this case, the diagonal matrix Σ is uniquely determined
             by M (though the matrices U and V are not). The diagonal entries of Σ are known as the singular values of M.</para>
             </summary>
             <remarks>
-            The computation of the singular value decomposition is done at construction time.
+            The computation of the singular value decomlocalPosition is done at construction time.
             </remarks>
             <typeparam name="T">Supported data types are double, single, <see cref="N:MathNet.Numerics.LinearAlgebra.Complex"/>, and <see cref="N:MathNet.Numerics.LinearAlgebra.Complex32"/>.</typeparam>
         </member>
@@ -34059,7 +34059,7 @@
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.ConditionNumber">
             <summary>Calculates the condition number of this matrix.</summary>
             <returns>The condition number of the matrix.</returns>
-            <remarks>The condition number is calculated using singular value decomposition.</remarks>
+            <remarks>The condition number is calculated using singular value decomlocalPosition.</remarks>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.Determinant">
             <summary>Computes the determinant of this matrix.</summary>
@@ -34221,7 +34221,7 @@
             <summary>Calculates the induced L2 norm of the matrix.</summary>
             <returns>The largest singular value of the matrix.</returns>
             <remarks>
-            For sparse matrices, the L2 norm is computed using a dense implementation of singular value decomposition.
+            For sparse matrices, the L2 norm is computed using a dense implementation of singular value decomlocalPosition.
             In a later release, it will be replaced with a sparse implementation.
             </remarks>
         </member>
@@ -35633,41 +35633,41 @@
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.Cholesky">
             <summary>
-            Computes the Cholesky decomposition for a matrix.
+            Computes the Cholesky decomlocalPosition for a matrix.
             </summary>
-            <returns>The Cholesky decomposition object.</returns>
+            <returns>The Cholesky decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.LU">
             <summary>
-            Computes the LU decomposition for a matrix.
+            Computes the LU decomlocalPosition for a matrix.
             </summary>
-            <returns>The LU decomposition object.</returns>
+            <returns>The LU decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.QR(MathNet.Numerics.LinearAlgebra.Factorization.QRMethod)">
             <summary>
-            Computes the QR decomposition for a matrix.
+            Computes the QR decomlocalPosition for a matrix.
             </summary>
             <param name="method">The type of QR factorization to perform.</param>
-            <returns>The QR decomposition object.</returns>
+            <returns>The QR decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.GramSchmidt">
             <summary>
-            Computes the QR decomposition for a matrix using Modified Gram-Schmidt Orthogonalization.
+            Computes the QR decomlocalPosition for a matrix using Modified Gram-Schmidt Orthogonalization.
             </summary>
-            <returns>The QR decomposition object.</returns>
+            <returns>The QR decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.Svd(System.Boolean)">
             <summary>
-            Computes the SVD decomposition for a matrix.
+            Computes the SVD decomlocalPosition for a matrix.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
-            <returns>The SVD decomposition object.</returns>
+            <returns>The SVD decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.Evd(MathNet.Numerics.LinearAlgebra.Symmetricity)">
             <summary>
-            Computes the EVD decomposition for a matrix.
+            Computes the EVD decomlocalPosition for a matrix.
             </summary>
-            <returns>The EVD decomposition object.</returns>
+            <returns>The EVD decomlocalPosition object.</returns>
         </member>
         <member name="M:MathNet.Numerics.LinearAlgebra.Matrix`1.Solve(MathNet.Numerics.LinearAlgebra.Vector{`0},MathNet.Numerics.LinearAlgebra.Vector{`0})">
             <summary>
@@ -38723,7 +38723,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.DirectMethod``1(System.Collections.Generic.IEnumerable{System.Tuple{``0[],``0}},System.Boolean,MathNet.Numerics.LinearRegression.DirectRegressionMethod)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses the cholesky decomposition of the normal equations.
+            Uses the cholesky decomlocalPosition of the normal equations.
             </summary>
             <param name="samples">Sequence of predictor-arrays and their response.</param>
             <param name="intercept">True if an intercept should be added as first artificial predictor value. Default = false.</param>
@@ -38733,7 +38733,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.NormalEquations``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Vector{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses the cholesky decomposition of the normal equations.
+            Uses the cholesky decomlocalPosition of the normal equations.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response vector Y</param>
@@ -38742,7 +38742,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.NormalEquations``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses the cholesky decomposition of the normal equations.
+            Uses the cholesky decomlocalPosition of the normal equations.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response matrix Y</param>
@@ -38751,7 +38751,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.NormalEquations``1(``0[][],``0[],System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses the cholesky decomposition of the normal equations.
+            Uses the cholesky decomlocalPosition of the normal equations.
             </summary>
             <param name="x">List of predictor-arrays.</param>
             <param name="y">List of responses</param>
@@ -38761,7 +38761,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.NormalEquations``1(System.Collections.Generic.IEnumerable{System.Tuple{``0[],``0}},System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses the cholesky decomposition of the normal equations.
+            Uses the cholesky decomlocalPosition of the normal equations.
             </summary>
             <param name="samples">Sequence of predictor-arrays and their response.</param>
             <param name="intercept">True if an intercept should be added as first artificial predictor value. Default = false.</param>
@@ -38770,7 +38770,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.QR``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Vector{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses an orthogonal decomposition and is therefore more numerically stable than the normal equations but also slower.
+            Uses an orthogonal decomlocalPosition and is therefore more numerically stable than the normal equations but also slower.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response vector Y</param>
@@ -38779,7 +38779,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.QR``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses an orthogonal decomposition and is therefore more numerically stable than the normal equations but also slower.
+            Uses an orthogonal decomlocalPosition and is therefore more numerically stable than the normal equations but also slower.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response matrix Y</param>
@@ -38788,7 +38788,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.QR``1(``0[][],``0[],System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses an orthogonal decomposition and is therefore more numerically stable than the normal equations but also slower.
+            Uses an orthogonal decomlocalPosition and is therefore more numerically stable than the normal equations but also slower.
             </summary>
             <param name="x">List of predictor-arrays.</param>
             <param name="y">List of responses</param>
@@ -38798,7 +38798,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.QR``1(System.Collections.Generic.IEnumerable{System.Tuple{``0[],``0}},System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses an orthogonal decomposition and is therefore more numerically stable than the normal equations but also slower.
+            Uses an orthogonal decomlocalPosition and is therefore more numerically stable than the normal equations but also slower.
             </summary>
             <param name="samples">Sequence of predictor-arrays and their response.</param>
             <param name="intercept">True if an intercept should be added as first artificial predictor value. Default = false.</param>
@@ -38807,7 +38807,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.Svd``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Vector{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses a singular value decomposition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
+            Uses a singular value decomlocalPosition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response vector Y</param>
@@ -38816,7 +38816,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.Svd``1(MathNet.Numerics.LinearAlgebra.Matrix{``0},MathNet.Numerics.LinearAlgebra.Matrix{``0})">
             <summary>
             Find the model parameters β such that X*β with predictor X becomes as close to response Y as possible, with least squares residuals.
-            Uses a singular value decomposition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
+            Uses a singular value decomlocalPosition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
             </summary>
             <param name="x">Predictor matrix X</param>
             <param name="y">Response matrix Y</param>
@@ -38825,7 +38825,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.Svd``1(``0[][],``0[],System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses a singular value decomposition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
+            Uses a singular value decomlocalPosition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
             </summary>
             <param name="x">List of predictor-arrays.</param>
             <param name="y">List of responses</param>
@@ -38835,7 +38835,7 @@
         <member name="M:MathNet.Numerics.LinearRegression.MultipleRegression.Svd``1(System.Collections.Generic.IEnumerable{System.Tuple{``0[],``0}},System.Boolean)">
             <summary>
             Find the model parameters β such that their linear combination with all predictor-arrays in X become as close to their response in Y as possible, with least squares residuals.
-            Uses a singular value decomposition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
+            Uses a singular value decomlocalPosition and is therefore more numerically stable (especially if ill-conditioned) than the normal equations or QR but also slower.
             </summary>
             <param name="samples">Sequence of predictor-arrays and their response.</param>
             <param name="intercept">True if an intercept should be added as first artificial predictor value. Default = false.</param>
@@ -39497,7 +39497,7 @@
         </member>
         <member name="M:MathNet.Numerics.Polynomial.Roots">
             <summary>
-            Calculates the complex roots of the Polynomial by eigenvalue decomposition
+            Calculates the complex roots of the Polynomial by eigenvalue decomlocalPosition
             </summary>
             <returns>a vector of complex numbers with the roots</returns>
         </member>
@@ -42086,7 +42086,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SvdSolve(System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Int32,System.Numerics.Complex[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -42095,9 +42095,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -42249,7 +42249,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SvdSolve(MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],System.Int32,MathNet.Numerics.Complex32[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -42258,9 +42258,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -42433,7 +42433,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SvdSolve(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Double[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -42442,9 +42442,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -42596,7 +42596,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SvdSolve(System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Single[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -42605,9 +42605,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Cuda.CudaLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -42967,9 +42967,9 @@
             <remarks>Rows must be greater or equal to columns.</remarks>
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomposition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomlocalPosition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -42984,7 +42984,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SvdSolve(`0[],System.Int32,System.Int32,`0[],System.Int32,`0[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -42999,9 +42999,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomposition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomposition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomposition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomlocalPosition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomlocalPosition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ILinearAlgebraProvider`1.SingularValueDecomlocalPosition(System.Boolean,`0[],System.Int32,System.Int32,`0[],`0[],`0[])"/>.</param>
             <param name="b">The B matrix</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -43404,9 +43404,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -43421,7 +43421,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SvdSolve(System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Int32,System.Numerics.Complex[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -43436,9 +43436,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -43801,9 +43801,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -43818,7 +43818,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SvdSolve(MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],System.Int32,MathNet.Numerics.Complex32[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -43833,9 +43833,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -44227,9 +44227,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -44255,7 +44255,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SvdSolve(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Double[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -44270,9 +44270,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -44627,9 +44627,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -44655,7 +44655,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SvdSolve(System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Single[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -44670,9 +44670,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.ManagedReference.ManagedReferenceLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -45020,9 +45020,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -45037,7 +45037,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SvdSolve(System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Int32,System.Numerics.Complex[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -45052,9 +45052,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -45393,9 +45393,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -45410,7 +45410,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SvdSolve(MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],System.Int32,MathNet.Numerics.Complex32[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -45425,9 +45425,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -45795,9 +45795,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -45823,7 +45823,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SvdSolve(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Double[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -45838,9 +45838,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -46171,9 +46171,9 @@
             <param name="method">The type of QR factorization to perform. <seealso cref="T:MathNet.Numerics.LinearAlgebra.Factorization.QRMethod"/></param>
             <remarks>Rows must be greater or equal to columns.</remarks>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -46199,7 +46199,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SvdSolve(System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Single[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -46214,9 +46214,9 @@
             </summary>
             <param name="rowsA">The number of rows in the A matrix.</param>
             <param name="columnsA">The number of columns in the A matrix.</param>
-            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
-            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
-            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="s">The s values returned by <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="u">The left singular vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
+            <param name="vt">The right singular  vectors returned by  <see cref="M:MathNet.Numerics.Providers.LinearAlgebra.Managed.ManagedLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])"/>.</param>
             <param name="b">The B matrix.</param>
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
@@ -46457,7 +46457,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SvdSolve(System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Int32,System.Numerics.Complex[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -46466,9 +46466,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -46760,7 +46760,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SvdSolve(MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],System.Int32,MathNet.Numerics.Complex32[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -46769,9 +46769,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -47090,7 +47090,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SvdSolve(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Double[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -47099,9 +47099,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -47393,7 +47393,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SvdSolve(System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Single[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -47402,9 +47402,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.Mkl.MklLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -47723,7 +47723,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SvdSolve(System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Int32,System.Numerics.Complex[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -47732,9 +47732,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Numerics.Complex[],System.Int32,System.Int32,System.Numerics.Complex[],System.Numerics.Complex[],System.Numerics.Complex[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -47966,7 +47966,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SvdSolve(MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],System.Int32,MathNet.Numerics.Complex32[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -47975,9 +47975,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,MathNet.Numerics.Complex32[],System.Int32,System.Int32,MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[],MathNet.Numerics.Complex32[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -48230,7 +48230,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SvdSolve(System.Double[],System.Int32,System.Int32,System.Double[],System.Int32,System.Double[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -48239,9 +48239,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Double[],System.Int32,System.Int32,System.Double[],System.Double[],System.Double[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>
@@ -48473,7 +48473,7 @@
         </member>
         <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SvdSolve(System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Single[])">
             <summary>
-            Solves A*X=B for X using the singular value decomposition of A.
+            Solves A*X=B for X using the singular value decomlocalPosition of A.
             </summary>
             <param name="a">On entry, the M by N matrix to decompose.</param>
             <param name="rowsA">The number of rows in the A matrix.</param>
@@ -48482,9 +48482,9 @@
             <param name="columnsB">The number of columns of B.</param>
             <param name="x">On exit, the solution matrix.</param>
         </member>
-        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomposition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
+        <member name="M:MathNet.Numerics.Providers.LinearAlgebra.OpenBlas.OpenBlasLinearAlgebraProvider.SingularValueDecomlocalPosition(System.Boolean,System.Single[],System.Int32,System.Int32,System.Single[],System.Single[],System.Single[])">
             <summary>
-            Computes the singular value decomposition of A.
+            Computes the singular value decomlocalPosition of A.
             </summary>
             <param name="computeVectors">Compute the singular U and VT vectors or not.</param>
             <param name="a">On entry, the M by N matrix to decompose. On exit, A may be overwritten.</param>

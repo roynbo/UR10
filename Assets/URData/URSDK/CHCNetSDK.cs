@@ -3739,13 +3739,13 @@ namespace PreviewDemo
 
         /*OSD 叠加的位置*/
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_OSD_POSITION
+        public struct NET_DVR_OSD_localPosition
         {
-            public byte byPositionMode;/*叠加风格，共2种；0，不显示；1，Custom*/
+            public byte bylocalPositionMode;/*叠加风格，共2种；0，不显示；1，Custom*/
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes1;
-            public uint dwPos_x;/*x坐标，positionmode为Custom时使用*/
-            public uint dwPos_y;/*y坐标，positionmode为Custom时使用*/
+            public uint dwPos_x;/*x坐标，localPositionmode为Custom时使用*/
+            public uint dwPos_y;/*y坐标，localPositionmode为Custom时使用*/
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;
         }
@@ -3806,7 +3806,7 @@ namespace PreviewDemo
         public struct NET_DVR_ATM_PACKAGE_ACTION
         {
             public NET_DVR_PACKAGE_LOCATION struPackageLocation;
-            public NET_DVR_OSD_POSITION struOsdPosition;
+            public NET_DVR_OSD_localPosition struOsdlocalPosition;
             public NET_DVR_FRAMETYPECODE struActionCode;/*交易类型等对应的码*/
             public NET_DVR_FRAMETYPECODE struPreCode;/*叠加字符前的字符*/
             public byte byActionCodeMode;/*交易类型等对应的码0,ASCII;1,HEX*/
@@ -3819,7 +3819,7 @@ namespace PreviewDemo
         {
             public NET_DVR_PACKAGE_LOCATION struPackageLocation;
             public NET_DVR_DATE_FORMAT struDateForm;
-            public NET_DVR_OSD_POSITION struOsdPosition;
+            public NET_DVR_OSD_localPosition struOsdlocalPosition;
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.I1)]
             public byte[] res;
         }
@@ -3829,7 +3829,7 @@ namespace PreviewDemo
         {
             public NET_DVR_PACKAGE_LOCATION location;
             public NET_DVRT_TIME_FORMAT struTimeForm;
-            public NET_DVR_OSD_POSITION struOsdPosition;
+            public NET_DVR_OSD_localPosition struOsdlocalPosition;
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
         }
@@ -3839,7 +3839,7 @@ namespace PreviewDemo
         {
             public NET_DVR_PACKAGE_LOCATION struPackageLocation;
             public NET_DVR_PACKAGE_LENGTH struPackageLength;
-            public NET_DVR_OSD_POSITION struOsdPosition;
+            public NET_DVR_OSD_localPosition struOsdlocalPosition;
             public NET_DVR_FRAMETYPECODE struPreCode;/*叠加字符前的字符*/
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.I1)]
             public byte[] res;
@@ -4609,7 +4609,7 @@ namespace PreviewDemo
         {
             public uint dwSize;
             public uint dwCurMediaFileLen;/* 当前播放的媒体文件长度 */
-            public uint dwCurMediaFilePosition;/* 当前播放文件的播放位置 */
+            public uint dwCurMediaFilelocalPosition;/* 当前播放文件的播放位置 */
             public uint dwCurMediaFileDuration;/* 当前播放文件的总时间 */
             public uint dwCurPlayTime;/* 当前已经播放的时间 */
             public uint dwCurMediaFIleFrames;/* 当前播放文件的总帧数 */
@@ -5908,7 +5908,7 @@ namespace PreviewDemo
             GET_UP_ABILITY = 0x1000,     //起身检测
             LEFT_ABILITY = 0x2000,     //物品遗留
             TAKE_ABILITY = 0x4000,     //物品拿取
-            LEAVE_POSITION = 0x8000,     //离岗
+            LEAVE_localPosition = 0x8000,     //离岗
             TRAIL_ABILITY = 0x10000,    //尾随 
             KEY_PERSON_GET_UP_ABILITY = 0x20000,    //重点人员起身检测
             FALL_DOWN_ABILITY = 0x80000,    //倒地
@@ -6040,7 +6040,7 @@ namespace PreviewDemo
             VCA_GET_UP = 0x800,	     //起身检测
             VCA_LEFT = 0x1000,     //物品遗留
             VCA_TAKE = 0x2000,     //物品拿取
-            VCA_LEAVE_POSITION = 0x4000,     //离岗
+            VCA_LEAVE_localPosition = 0x4000,     //离岗
             VCA_TRAIL = 0x8000,     //尾随
             VCA_KEY_PERSON_GET_UP = 0x10000,    //重点人员起身检测
             VCA_FALL_DOWN = 0x80000,    //倒地检测
@@ -6072,7 +6072,7 @@ namespace PreviewDemo
             ENUM_VCA_EVENT_GET_UP = 12,  //起身检测
             ENUM_VCA_EVENT_LEFT = 13,  //物品遗留
             ENUM_VCA_EVENT_TAKE = 14,  //物品拿取
-            ENUM_VCA_EVENT_LEAVE_POSITION = 15,  //离岗
+            ENUM_VCA_EVENT_LEAVE_localPosition = 15,  //离岗
             ENUM_VCA_EVENT_TRAIL = 16,  //尾随
             ENUM_VCA_EVENT_KEY_PERSON_GET_UP = 17,  //重点人员起身检测
             ENUM_VCA_EVENT_FALL_DOWN = 20,  //倒地检测
@@ -6310,7 +6310,7 @@ namespace PreviewDemo
 
         //离岗事件
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_VCA_LEAVE_POSITION
+        public struct NET_VCA_LEAVE_localPosition
         {
             public NET_VCA_POLYGON struRegion; //区域范围
             public ushort wLeaveDelay;  //无人报警时间，单位：s，取值1-1800
@@ -6454,7 +6454,7 @@ namespace PreviewDemo
             [FieldOffsetAttribute(0)]
             public NET_VCA_SCANNER struScanner;//读卡器参数
             [FieldOffsetAttribute(0)]
-            public NET_VCA_LEAVE_POSITION struLeavePos;        //离岗参数
+            public NET_VCA_LEAVE_localPosition struLeavePos;        //离岗参数
             [FieldOffsetAttribute(0)]
             public NET_VCA_TRAIL struTrail;           //尾随参数
             [FieldOffsetAttribute(0)]
@@ -7224,7 +7224,7 @@ namespace PreviewDemo
             EVENT_FACE_DETECT,              // 异常人脸
             EVENT_LEFT,                     // 物品遗留
             EVENT_TAKE,                      // 物品拿取
-            EVENT_LEAVE_POSITION,         //离岗事件
+            EVENT_LEAVE_localPosition,         //离岗事件
             EVENT_TRAIL_INFO = 16,            //尾随
             EVENT_FALL_DOWN_INFO = 19,                 //倒地
             EVENT_OBJECT_PASTE = 20,		// 异物粘贴区域
@@ -7957,34 +7957,34 @@ namespace PreviewDemo
         }
 
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_PTZ_POSITION
+        public struct NET_DVR_PTZ_localPosition
         {
             // 是否启用场景，在设置场景行为规则的时候该字段无效，在设置球机本地配置场景位置信息时作为使能位
             public byte byEnable;
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes1;  //保留
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = NAME_LEN, ArraySubType = UnmanagedType.I1)]
-            public byte[] byPtzPositionName; //场景位置名称
+            public byte[] byPtzlocalPositionName; //场景位置名称
             public NET_DVR_PTZPOS struPtzPos; //ptz 坐标
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 40, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;
         }
 
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_POSITION_RULE_CFG
+        public struct NET_DVR_localPosition_RULE_CFG
         {
             public uint dwSize;             // 结构大小 
-            public NET_DVR_PTZ_POSITION    struPtzPosition;    // 场景位置信息
+            public NET_DVR_PTZ_localPosition    struPtzlocalPosition;    // 场景位置信息
             public NET_VCA_RULECFG         struVcaRuleCfg;     //行为规则配置
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 80, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;         // 保留字节
         }
         
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_POSITION_RULE_CFG_V41
+        public struct NET_DVR_localPosition_RULE_CFG_V41
         {
             public uint dwSize;             // 结构大小 
-            public NET_DVR_PTZ_POSITION  struPtzPosition;    // 场景位置信息
+            public NET_DVR_PTZ_localPosition  struPtzlocalPosition;    // 场景位置信息
             public NET_VCA_RULECFG_V41   struVcaRuleCfg;     //行为规则配置
             public byte byTrackEnable; //是否启用跟踪
             public byte byRes1;
@@ -8008,7 +8008,7 @@ namespace PreviewDemo
         }
 
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_POSITION_INDEX
+        public struct NET_DVR_localPosition_INDEX
         {
             public byte byIndex;    // 场景索引
             public byte byRes1;
@@ -8017,16 +8017,16 @@ namespace PreviewDemo
             public byte[] byRes2;   // 保留字节
         }
 
-        public const int MAX_POSITION_NUM = 10;
+        public const int MAX_localPosition_NUM = 10;
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_POSITION_TRACK_CFG
+        public struct NET_DVR_localPosition_TRACK_CFG
         {
             public uint dwSize;
             public byte byNum; // 场景个数
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes1;
-            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_POSITION_NUM, ArraySubType = UnmanagedType.Struct)]
-            public NET_DVR_POSITION_INDEX[]   struPositionIndex;
+            [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_localPosition_NUM, ArraySubType = UnmanagedType.Struct)]
+            public NET_DVR_localPosition_INDEX[]   strulocalPositionIndex;
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;
         }
@@ -8036,7 +8036,7 @@ namespace PreviewDemo
         public struct NET_DVR_PATROL_SCENE_INFO
         {
             public ushort wDwell;         // 停留时间 30-300
-            public byte byPositionID;   // 场景号1-10，默认0表示该巡航点不添加场景
+            public byte bylocalPositionID;   // 场景号1-10，默认0表示该巡航点不添加场景
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 5, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
         }
@@ -8504,7 +8504,7 @@ namespace PreviewDemo
         {	
             public byte byEnable; //是否开启画中画
             public byte byBackChannel; //背景通道号（面板通道）
-            public byte byPosition; //叠加位置，0-左上,1-左下,2-右上,3-右下
+            public byte bylocalPosition; //叠加位置，0-左上,1-左下,2-右上,3-右下
             public byte byPIPDiv; //分屏系数(人脸画面:面板画面)，0-1:4,1-1:9,2-1:16
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 4, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
@@ -8998,10 +8998,10 @@ namespace PreviewDemo
             public byte byBacklightLevel; /*0x0-0xF*/
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 2, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes1;
-            public uint dwPositionX1; //（X坐标1）
-            public uint dwPositionY1; //（Y坐标1）
-            public uint dwPositionX2; //（X坐标2）
-            public uint dwPositionY2; //（Y坐标2）
+            public uint dwlocalPositionX1; //（X坐标1）
+            public uint dwlocalPositionY1; //（Y坐标1）
+            public uint dwlocalPositionX2; //（X坐标2）
+            public uint dwlocalPositionY2; //（Y坐标2）
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 4, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes2;
         }
@@ -12211,7 +12211,7 @@ namespace PreviewDemo
             public byte[] byJoinDecoderId;
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = MAX_WINDOWS_V41, ArraySubType = UnmanagedType.I1)]
             public byte[] byDecResolution;
-            public NET_DVR_RECTCFG struPosition; //显示通道在电视墙中位置
+            public NET_DVR_RECTCFG strulocalPosition; //显示通道在电视墙中位置
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 80, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
         }
@@ -12898,9 +12898,9 @@ namespace PreviewDemo
 
         //显示单元位置控制
         [StructLayoutAttribute(LayoutKind.Sequential)]
-        public struct NET_DVR_DISPLAY_POSITION_CTRL
+        public struct NET_DVR_DISPLAY_localPosition_CTRL
         {
-            public byte byPositionType;	//1-水平位置 2-垂直位置，
+            public byte bylocalPositionType;	//1-水平位置 2-垂直位置，
             public char byScale;			//-1 、0、+1三个值
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 14, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
@@ -12914,7 +12914,7 @@ namespace PreviewDemo
             [FieldOffsetAttribute(0)]
             public NET_DVR_DISPLAY_COLOR_CTRL struDisplayCtrl;
             [FieldOffsetAttribute(0)]
-            public NET_DVR_DISPLAY_POSITION_CTRL struPositionCtrl;
+            public NET_DVR_DISPLAY_localPosition_CTRL strulocalPositionCtrl;
             [FieldOffsetAttribute(0)]
             [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 16, ArraySubType = UnmanagedType.I1)]
             public byte[] byRes;
@@ -14903,10 +14903,10 @@ namespace PreviewDemo
             public uint dwNightToDayFilterLevel;//0-7
             public uint dwDayNightFilterTime;//(60秒)
             public uint dwBacklightMode;/*背光补偿:0 USERSET 1 UP、2 DOWN、3 LEFT、4 RIGHT、5MIDDLE*/
-            public uint dwPositionX1;//（X坐标1）
-            public uint dwPositionY1;//（Y坐标1）
-            public uint dwPositionX2;//（X坐标2）
-            public uint dwPositionY2;//（Y坐标2）
+            public uint dwlocalPositionX1;//（X坐标1）
+            public uint dwlocalPositionY1;//（Y坐标1）
+            public uint dwlocalPositionX2;//（X坐标2）
+            public uint dwlocalPositionY2;//（Y坐标2）
             public uint dwBacklightLevel;/*0x0-0xF*/
             public uint dwDigitalNoiseRemoveEnable; /*数字去噪：0 dsibale  1 enable*/
             public uint dwDigitalNoiseRemoveLevel;/*0x0-0xF*/

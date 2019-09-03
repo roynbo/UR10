@@ -16,7 +16,7 @@ public class LiangZhuaCTRL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(openFlag)
+        if (openFlag)
         {
             if (!playOnce)
             {
@@ -33,5 +33,4 @@ public class LiangZhuaCTRL : MonoBehaviour
             }
         }
     }
-    
 }

@@ -27,10 +27,10 @@ public class MathCacul : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                double tmp = SqureDistanceSegmentToSegment(rhsObject[i].position.x, rhsObject[i].position.y, rhsObject[i].position.z,
-                                                 rhsObject[i + 1].position.x, rhsObject[i + 1].position.y, rhsObject[i + 1].position.z,
-                                                 lhsObject[j].position.x, lhsObject[j].position.y, lhsObject[j].position.z,
-                                                 lhsObject[j + 1].position.x, lhsObject[j + 1].position.y, lhsObject[j + 1].position.z);
+                double tmp = SqureDistanceSegmentToSegment(rhsObject[i].localPosition.x, rhsObject[i].localPosition.y, rhsObject[i].localPosition.z,
+                                                 rhsObject[i + 1].localPosition.x, rhsObject[i + 1].localPosition.y, rhsObject[i + 1].localPosition.z,
+                                                 lhsObject[j].localPosition.x, lhsObject[j].localPosition.y, lhsObject[j].localPosition.z,
+                                                 lhsObject[j + 1].localPosition.x, lhsObject[j + 1].localPosition.y, lhsObject[j + 1].localPosition.z);
                 if (tmp < minDistance)
                 {
                     minDistance = tmp;
