@@ -36,6 +36,9 @@ public class BtnManager : MonoBehaviour
     [SerializeField] GameObject URMissionList;
     Text txIndex;
     Text txLog;
+
+    //剥线测试
+    int bxIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +61,7 @@ public class BtnManager : MonoBehaviour
         {
             txIndex = URMissionList.transform.Find("Texts").transform.Find("Index").gameObject.GetComponent<Text>();
             txLog= URMissionList.transform.Find("Texts").transform.Find("Log").gameObject.GetComponent<Text>();
-            xmlRead = new XMLRead("Missions.xml");
+            xmlRead = new XMLRead("Boxian.xml");
             if (xmlRead.Read())
             {
                 print("文件读取正确");
@@ -101,6 +104,32 @@ public class BtnManager : MonoBehaviour
             btnConnect.interactable = false;
     }
 
+    public void btnWrite()
+    {
+        XMLRead bxXMLRead = new XMLRead("Boxian.xml");
+        bxXMLRead.Read();
+        XmlDocument doc = bxXMLRead.XMLdoc;
+        XmlNode root = doc.SelectSingleNode("Missions");
+        XmlElement Mission = doc.CreateElement("Mission_"+ bxIndex.ToString());
+        XmlElement Log = doc.CreateElement("Log");
+        Log.InnerText = "第" + (bxIndex+1).ToString() + "步";
+        XmlElement AxisAngles = doc.CreateElement("AxisAngles");
+        for(int i=0;i<6;i++)
+        {
+            XmlElement Axisangle = doc.CreateElement("Axis_" + i.ToString() + "_angle");
+            Axisangle.InnerText = temp_Pos[i].ToString();
+            AxisAngles.AppendChild(Axisangle);
+        }
+        XmlElement IO = doc.CreateElement("IO");
+        IO.InnerText = "-1";
+        Mission.AppendChild(Log);
+        Mission.AppendChild(AxisAngles);
+        Mission.AppendChild(IO);
+        root.AppendChild(Mission);
+        doc.Save(bxXMLRead.path);
+        bxIndex++;
+
+    }
     #region UR通讯
     public void Do_Initilize()
     {

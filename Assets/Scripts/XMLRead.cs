@@ -46,4 +46,11 @@ public class XMLRead
             return m_xmldoc;
         }
     }
+    public string path
+    {
+        get
+        {
+            return m_XML_path;
+        }
+    }
 }
