@@ -8,6 +8,7 @@ public class AutoPlay : MonoBehaviour
     public Animation ani;
     public GameObject btn;
     public float spd = 1.0f;
+    public string aniName;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class AutoPlay : MonoBehaviour
     }
     public void btnAutoPlay()
     {
-        ani["Exhibition_Xianjia"].speed = spd;
-        ani.Play("Exhibition_Xianjia");
+        ani[aniName].speed = spd;
+        ani.Play(aniName);
     }
 }
