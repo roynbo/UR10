@@ -83,4 +83,39 @@ public class CommandScripts
         string command = "movej([" + Pos[0].ToString("0.0000") + "," + Pos[1].ToString("0.0000") + "," + Pos[2].ToString("0.0000") + "," + Pos[3].ToString("0.0000") + "," + Pos[4].ToString("0.0000") + "," + Pos[5].ToString("0.0000") + "], a = " + AccelerationRate.ToString() + ", v = " + SpeedRate.ToString() + ")";
         return command;
     }
+
+    public static string MoveTCP(string whatAxis,int direction, double AccelerationRate, double SpeedRate)
+    {
+        //不管怎么样都要获取当前的坐标值
+        double new_X = URDateHandle.Positions_X;
+        double new_Y = URDateHandle.Positions_Y;
+        double new_Z = URDateHandle.Positions_Z;
+        double new_U = URDateHandle.Positions_U;
+        double new_V = URDateHandle.Positions_V;
+        double new_W = URDateHandle.Positions_W;
+
+        //然后根据点动的按钮，判断要改哪个值(这里不是旋转，只有X,Y,Z三种可能)，直接覆盖到真实的当前XYZ值
+        if (whatAxis == "X")
+        {
+            new_X = ((new_X + 10) * direction);
+        }
+        else if (whatAxis == "Y")
+        {
+            new_Y = ((new_Y + 10) * direction);
+        }
+        else if (whatAxis == "Z")
+        {
+            new_Z = ((new_Z + 10) * direction);
+        }
+        else
+        {
+            //也有可能我不要移动，只是要看指令
+        }
+
+
+        //最后把方向运动的指令发送出去
+        string command = "movel(p[" + new_X.ToString("0.0000") + "," + new_Y.ToString("0.0000") + "," + new_Z.ToString("0.0000") + "," + new_U.ToString("0.0000") + "," + new_V.ToString("0.0000") + "," + new_W.ToString("0.0000") + "], a = " + AccelerationRate.ToString() + ", v = " + SpeedRate.ToString() + ")";
+        //CustomCommand.Text = command;
+        return command;
+    }
 }
