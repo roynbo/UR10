@@ -62,7 +62,7 @@ public class BtnManager : MonoBehaviour
         {
             txIndex = URMissionList.transform.Find("Texts").transform.Find("Index").gameObject.GetComponent<Text>();
             txLog= URMissionList.transform.Find("Texts").transform.Find("Log").gameObject.GetComponent<Text>();
-            xmlRead = new XMLRead("Boxian.xml");
+            xmlRead = new XMLRead("fangxianjia.xml");
             if (xmlRead.Read())
             {
                 print("文件读取正确");
@@ -74,6 +74,7 @@ public class BtnManager : MonoBehaviour
             }
             else
             {
+                print(xmlRead.path);
                 print("文件路径不对");
             }
         }
