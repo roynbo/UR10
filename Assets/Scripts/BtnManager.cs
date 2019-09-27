@@ -38,7 +38,7 @@ public class BtnManager : MonoBehaviour
     Text txLog;
 
     //剥线测试
-    int bxIndex = 0;
+    int bxIndex = 500;
     // Start is called before the first frame update
     void Start()
     {
