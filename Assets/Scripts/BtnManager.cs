@@ -39,6 +39,7 @@ public class BtnManager : MonoBehaviour
 
     //剥线测试
     int bxIndex = 500;
+    public Text txCutTips;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +62,7 @@ public class BtnManager : MonoBehaviour
         {
             txIndex = URMissionList.transform.Find("Texts").transform.Find("Index").gameObject.GetComponent<Text>();
             txLog= URMissionList.transform.Find("Texts").transform.Find("Log").gameObject.GetComponent<Text>();
-            xmlRead = new XMLRead("Boxian.xml");
+            xmlRead = new XMLRead("fangxianjia.xml");
             if (xmlRead.Read())
             {
                 print("文件读取正确");
@@ -73,6 +74,7 @@ public class BtnManager : MonoBehaviour
             }
             else
             {
+                print(xmlRead.path);
                 print("文件路径不对");
             }
         }
@@ -210,6 +212,69 @@ public class BtnManager : MonoBehaviour
             Button btnNext = URMissionList.transform.Find("btnNextMission").GetComponent<Button>();
             btnNext.interactable = false;
         }
+    }
+    #endregion
+
+    #region 剥线跟随测试
+    public void FollowCut()
+    {
+        StartCoroutine(ClampProcess());
+    }
+    IEnumerator ClampProcess()
+    {
+        for(int i=15;i>0;i--)
+        {
+            txCutTips.text = "夹线中\n";
+            txCutTips.text += i.ToString()+"s";
+            TipsColorChange(i);
+            yield return new WaitForSeconds(1);
+        }
+        StartCoroutine(ReadyProcess());
+    }
+    IEnumerator ReleaseProcess()
+    {
+        for (int i = 20; i > 0; i--)
+        {
+            txCutTips.text = "退线中\n";
+            txCutTips.text += i.ToString() + "s";
+            TipsColorChange(i);
+            yield return new WaitForSeconds(1);
+        }
+        txCutTips.text = "剥线完成";
+        TipsColorChange(100);
+    }
+    IEnumerator ReadyProcess()
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            txCutTips.text = "准备按下剥线\n";
+            txCutTips.text += i.ToString() + "s";
+            TipsColorChange(i);
+            yield return new WaitForSeconds(1);
+        }
+        StartCoroutine(FollowProcess());
+    }
+    IEnumerator FollowProcess()
+    {
+        URController.Send_command(CommandScripts.MoveTCP("X", 1, AccelerationRate, 0.001167));
+        for(int i=90;i>0;i--)
+        {
+            txCutTips.text = "剥线中\n";
+            txCutTips.text += i.ToString() + "s";
+            TipsColorChange(i);
+            yield return new WaitForSeconds(1);
+        }
+        URController.Send_command(CommandScripts.MoveStop());
+        StartCoroutine(ReleaseProcess());
+    }
+    void TipsColorChange(int i)
+    {
+        if(i<=5)
+        {
+            txCutTips.color = Color.red;
+        }
+        else
+            txCutTips.color = Color.black;
     }
     #endregion
 }
