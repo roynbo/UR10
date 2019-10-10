@@ -19,7 +19,7 @@ public class URMissionControl : MonoBehaviour
     private double SpeedRate;
     private double AccelerationRate;
     string[] temp_Pos = new string[12];
-    double[] current_Pos = new double[12];
+    float[] current_Pos = new float[12];
 
     XMLRead xmlRead;
     List<Mission> mission_List = new List<Mission>();
@@ -29,6 +29,11 @@ public class URMissionControl : MonoBehaviour
     public Button btnNext;
     public Text txCutTips;
     Mission BoMission;
+    string fileName;
+
+    //实时显示
+    public GameObject[] URJoints = new GameObject[6];
+    public GameObject[] tools = new GameObject[2];
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +46,16 @@ public class URMissionControl : MonoBehaviour
         if (URController.isConnect)
         {
             status.color = Color.green;
+            URJoints[0].transform.localEulerAngles = new Vector3(URJoints[0].transform.localEulerAngles.x, -current_Pos[0], URJoints[0].transform.localEulerAngles.z);
+            URJoints[1].transform.localEulerAngles = new Vector3(URJoints[1].transform.localEulerAngles.x, -(current_Pos[1] + 90), URJoints[1].transform.localEulerAngles.z);
+            URJoints[2].transform.localEulerAngles = new Vector3(URJoints[2].transform.localEulerAngles.x, -current_Pos[2], URJoints[2].transform.localEulerAngles.z);
+            URJoints[3].transform.localEulerAngles = new Vector3(URJoints[3].transform.localEulerAngles.x, -current_Pos[3] + 90, URJoints[3].transform.localEulerAngles.z);
+            URJoints[4].transform.localEulerAngles = new Vector3(URJoints[4].transform.localEulerAngles.x, -current_Pos[4] - 180, URJoints[4].transform.localEulerAngles.z);
+            URJoints[5].transform.localEulerAngles = new Vector3(URJoints[5].transform.localEulerAngles.x, current_Pos[5], URJoints[5].transform.localEulerAngles.z);
         }
         else
             status.color = Color.red;
+        
     }
     public void Connect()
     {
@@ -57,6 +69,7 @@ public class URMissionControl : MonoBehaviour
         AccelerationRate = BasicAcceleration;
         URDateCollector.OnGetPositionSuccess += new URDateHandle.GetPositionSuccess(UpdatePositionsValue);
         URDateCollector.OnGetAngleSuccess += new URDateHandle.GetAngleSuccess(UpdateAnglesValue);
+
     }
     void UpdatePositionsValue(float[] Positions)
     {
@@ -75,13 +88,14 @@ public class URMissionControl : MonoBehaviour
         }
         for (int i = 0; i < 6; i++)
         {
-            current_Pos[i] = Angles[i];
+            current_Pos[i] = (float)Angles[i];
             temp_Pos[i] = current_Pos[i].ToString("0.00");
         }
+        
     }
     public void MissionChoose(int xml_index)
     {
-        string fileName;
+
         switch (xml_index)
         {
             case 0:
@@ -128,6 +142,10 @@ public class URMissionControl : MonoBehaviour
             else
             {
                 StartCoroutine(IOProcess(mission_List[index].IOindex));
+                if(fileName== "ningluoshuan.xml")
+                    ShowTool(mission_List[index].IOindex,0);
+                else
+                    ShowTool(mission_List[index].IOindex, 1);
             }
         }
         else
@@ -236,5 +254,16 @@ public class URMissionControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         URController.Send_command(CommandScripts.IO(3, false));
 
+    }
+    void ShowTool(int io,int toolIndex)
+    {
+        if(io==0)
+        {
+            tools[toolIndex].SetActive(true);
+        }
+        else if(io == 1)
+        {
+            tools[toolIndex].SetActive(false);
+        }
     }
 }

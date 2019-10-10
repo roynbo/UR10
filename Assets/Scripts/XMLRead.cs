@@ -7,7 +7,7 @@ using System;
 public class XMLRead
 {
     private string m_file_path = Application.streamingAssetsPath;
-    private string m_XML_name;
+    public string m_XML_name;
     private string m_XML_path;
     private XmlDocument m_xmldoc;
     public XMLRead()
