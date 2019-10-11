@@ -47,6 +47,7 @@ public class ModeChose : MonoBehaviour
             animations["ModeShow" + index.ToString()].time = 0;
             animations["ModeShow" + index.ToString()].speed = 1;
             animations.Play("ModeShow" + index.ToString());
+
         }
         else
         {
@@ -59,7 +60,6 @@ public class ModeChose : MonoBehaviour
             animations["ModeShow" + index.ToString()].time = animations["ModeShow" + index.ToString()].clip.length;
             animations["ModeShow" + index.ToString()].speed = -1;
             animations.Play("ModeShow" + index.ToString());
-
         }
     }
 }

@@ -40,6 +40,8 @@ public class TouchRotate : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             if (Mathf.Abs(MainCamera.transform.eulerAngles.y) < 45)
                 MainCamera.transform.RotateAround(new Vector3(0, 0, 300), Vector3.left, speed * mouseY * Time.deltaTime);
+            else if (Mathf.Abs(MainCamera.transform.eulerAngles.y) > 135)
+                MainCamera.transform.RotateAround(new Vector3(0, 0, 300), Vector3.left, -speed * mouseY * Time.deltaTime);
             else
                 MainCamera.transform.RotateAround(new Vector3(0, 0, 300), Vector3.forward, speed * mouseY * Time.deltaTime);
         }
