@@ -20,7 +20,8 @@ public class URMissionControl : MonoBehaviour
     private double AccelerationRate;
     string[] temp_Pos = new string[12];
     float[] current_Pos = new float[12];
-
+    double [] Axis_Pos = new double[12];
+    public Text[] txPos = new Text[6];
     XMLRead xmlRead;
     List<Mission> mission_List = new List<Mission>();
     int index = -1;
@@ -34,6 +35,7 @@ public class URMissionControl : MonoBehaviour
     //实时显示
     public GameObject[] URJoints = new GameObject[6];
     public GameObject[] tools = new GameObject[2];
+    public GameObject[] toolsJia = new GameObject[2];
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,10 @@ public class URMissionControl : MonoBehaviour
         }
         else
             status.color = Color.red;
+        for(int i=0;i<6;i++)
+        {
+            txPos[i].text = temp_Pos[i];
+        }
         
     }
     public void Connect()
@@ -89,6 +95,7 @@ public class URMissionControl : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             current_Pos[i] = (float)Angles[i];
+            Axis_Pos[i] = Angles[i];
             temp_Pos[i] = current_Pos[i].ToString("0.00");
         }
         
@@ -143,9 +150,9 @@ public class URMissionControl : MonoBehaviour
             {
                 StartCoroutine(IOProcess(mission_List[index].IOindex));
                 if(fileName== "ningluoshuan.xml")
-                    ShowTool(mission_List[index].IOindex,0);
+                    ShowTool(mission_List[index].IOindex,1);
                 else
-                    ShowTool(mission_List[index].IOindex, 1);
+                    ShowTool(mission_List[index].IOindex, 0);
             }
         }
         else
@@ -260,10 +267,24 @@ public class URMissionControl : MonoBehaviour
         if(io==0)
         {
             tools[toolIndex].SetActive(true);
+            toolsJia[toolIndex].SetActive(false);
         }
         else if(io == 1)
         {
             tools[toolIndex].SetActive(false);
+            toolsJia[toolIndex].SetActive(true);
         }
+        else
+        {
+            print("Nothing");
+        }
+    }
+    public void SingleAxisJogZheng(int index)
+    {
+        URController.Send_Command(CommandScripts.MoveAxis(index, 1, AccelerationRate, SpeedRate, Axis_Pos));
+    }
+    public void SingleAxisJogFu(int index)
+    {
+        URController.Send_Command(CommandScripts.MoveAxis(index, -1, AccelerationRate, SpeedRate, Axis_Pos));
     }
 }

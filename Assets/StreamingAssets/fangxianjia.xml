@@ -27,12 +27,12 @@
   <Mission_2>
     <Log>mission2</Log>
     <AxisAngles>
-      <Axis_0_angle>-90</Axis_0_angle>
-      <Axis_1_angle>-70.75</Axis_1_angle>
-      <Axis_2_angle>-96.45</Axis_2_angle>
-      <Axis_3_angle>-69.42</Axis_3_angle>
+      <Axis_0_angle>-89.97</Axis_0_angle>
+      <Axis_1_angle>-71.13</Axis_1_angle>
+      <Axis_2_angle>-96.08</Axis_2_angle>
+      <Axis_3_angle>-69.62</Axis_3_angle>
       <Axis_4_angle>-1.5</Axis_4_angle>
-      <Axis_5_angle>55.30</Axis_5_angle>
+      <Axis_5_angle>55.60</Axis_5_angle>
     </AxisAngles>
     <IO>-1</IO>
   </Mission_2>
@@ -51,12 +51,12 @@
 <Mission_4>
     <Log>mission4</Log>
     <AxisAngles>
-      <Axis_0_angle>-90</Axis_0_angle>
-      <Axis_1_angle>-77.57</Axis_1_angle>
-      <Axis_2_angle>-71.19</Axis_2_angle>
-      <Axis_3_angle>-86.21</Axis_3_angle>
-      <Axis_4_angle>-1.5</Axis_4_angle>
-      <Axis_5_angle>53.66</Axis_5_angle>
+      <Axis_0_angle>-89.97</Axis_0_angle>
+      <Axis_1_angle>-73.54</Axis_1_angle>
+      <Axis_2_angle>-85.38</Axis_2_angle>
+      <Axis_3_angle>-77.42</Axis_3_angle>
+      <Axis_4_angle>-1.52</Axis_4_angle>
+      <Axis_5_angle>55.12</Axis_5_angle>
     </AxisAngles>
     <IO>-1</IO>
   </Mission_4>
@@ -75,24 +75,24 @@
 <Mission_6>
     <Log>mission6</Log>
     <AxisAngles>
-      <Axis_0_angle>-126.67</Axis_0_angle>
-      <Axis_1_angle>-134.91</Axis_1_angle>
-      <Axis_2_angle>85.80</Axis_2_angle>
-      <Axis_3_angle>-129.06</Axis_3_angle>
-      <Axis_4_angle>-54</Axis_4_angle>
-      <Axis_5_angle>-3.78</Axis_5_angle>
+      <Axis_0_angle>-135.14</Axis_0_angle>
+      <Axis_1_angle>-138.06</Axis_1_angle>
+      <Axis_2_angle>90.17</Axis_2_angle>
+      <Axis_3_angle>-129.96</Axis_3_angle>
+      <Axis_4_angle>-45.44</Axis_4_angle>
+      <Axis_5_angle>-4.17</Axis_5_angle>
     </AxisAngles>
     <IO>-1</IO>
   </Mission_6>
 <Mission_7>
     <Log>mission7</Log>
     <AxisAngles>
-      <Axis_0_angle>-126.67</Axis_0_angle>
-      <Axis_1_angle>-134.91</Axis_1_angle>
-      <Axis_2_angle>85.80</Axis_2_angle>
-      <Axis_3_angle>-129.06</Axis_3_angle>
-      <Axis_4_angle>-54</Axis_4_angle>
-      <Axis_5_angle>-3.78</Axis_5_angle>
+      <Axis_0_angle>-135.14</Axis_0_angle>
+      <Axis_1_angle>-138.06</Axis_1_angle>
+      <Axis_2_angle>90.17</Axis_2_angle>
+      <Axis_3_angle>-129.96</Axis_3_angle>
+      <Axis_4_angle>-45.44</Axis_4_angle>
+      <Axis_5_angle>-4.17</Axis_5_angle>
     </AxisAngles>
     <IO>1</IO>
   </Mission_7>

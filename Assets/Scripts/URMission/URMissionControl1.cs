@@ -20,7 +20,8 @@ public class URMissionControl1 : MonoBehaviour
     private double AccelerationRate;
     string[] temp_Pos = new string[12];
     float[] current_Pos = new float[12];
-
+    double[] Axis_Pos = new double[12];
+    public Text[] txPos = new Text[6];
     XMLRead xmlRead;
     List<Mission> mission_List = new List<Mission>();
     int index = -1;
@@ -34,6 +35,7 @@ public class URMissionControl1 : MonoBehaviour
     //实时显示
     public GameObject[] URJoints = new GameObject[6];
     public Animation[] tools = new Animation[2];
+    public GameObject[] XianJia = new GameObject[2];
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +57,10 @@ public class URMissionControl1 : MonoBehaviour
         }
         else
             status.color = Color.red;
-        
+        for (int i = 0; i < 6; i++)
+        {
+            txPos[i].text = temp_Pos[i];
+        }
     }
     public void Connect()
     {
@@ -88,6 +93,7 @@ public class URMissionControl1 : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             current_Pos[i] = (float)Angles[i];
+            Axis_Pos[i] = Angles[i];
             temp_Pos[i] = current_Pos[i].ToString("0.00");
         }
        
@@ -258,10 +264,24 @@ public class URMissionControl1 : MonoBehaviour
         if (io == 0)
         {
             tools[toolIndex].Play("zhuaClose");
+            XianJia[0].SetActive(true);
+            XianJia[1].SetActive(false);
         }
         else if (io == 1)
         {
             tools[toolIndex].Play("zhuaOpen");
         }
+        else
+        {
+            print("Nothing");
+        }
+    }
+    public void SingleAxisJogZheng(int index)
+    {
+        URController.Send_Command(CommandScripts.MoveAxis(index, 1, AccelerationRate, SpeedRate, Axis_Pos));
+    }
+    public void SingleAxisJogFu(int index)
+    {
+        URController.Send_Command(CommandScripts.MoveAxis(index, -1, AccelerationRate, SpeedRate, Axis_Pos));
     }
 }

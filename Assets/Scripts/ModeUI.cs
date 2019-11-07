@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ModeUI : MonoBehaviour
+public class ModeUI
 {
     Button btnMode;
     GameObject imgChosen;

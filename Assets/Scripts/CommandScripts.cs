@@ -23,27 +23,27 @@ public class CommandScripts
         //然后根据点动的按钮，判断要改哪个值(这里不是旋转，只有X,Y,Z三种可能)，直接覆盖到真实的当前XYZ值
         if (index == 0)
         {
-            new_X = ((new_X + 10) * direction);
+            new_X = (new_X + 1.57 * direction);
         }
         else if (index == 1)
         {
-            new_Y = ((new_Y + 10) * direction);
+            new_Y = (new_Y + 1.57 * direction);
         }
         else if (index == 2)
         {
-            new_Z = ((new_Z + 10) * direction);
+            new_Z = (new_Z + 1.57 * direction);
         }
         else if (index == 3)
         {
-            new_U = ((new_U + 100) * direction);
+            new_U = (new_U + 1.57 * direction);
         }
         else if (index == 4)
         {
-            new_V = ((new_V + 100) * direction);
+            new_V = (new_V + 1.57 * direction);
         }
         else if (index == 5)
         {
-            new_W = ((new_W + 100) * direction);
+            new_W = (new_W + 1.57 * direction);
         }
         else
         {
